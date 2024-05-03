@@ -111,12 +111,31 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
-        }
-        #messages li {
-            animation-name: none;
-            animation-duration: 0.5s;
-            animation-fill-mode: forwards;
-        }
+       #messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-top: none;
+    margin-top: 15px;
+    list-style-type: none; /* Ensure no bullets are shown */
+}
+
+#messages li {
+    margin-bottom: 8px;
+    padding: 10px;
+    background-color: #006EB6;
+    border-radius: 12px;
+    border: 1px solid #006EB6;
+    max-width: 300px;
+    list-style-type: none; /* Ensure no bullets are shown */
+    animation-name: none;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
     </style>
 </head>
 <body>
