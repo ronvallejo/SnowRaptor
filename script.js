@@ -5,7 +5,7 @@ function sendMessageToBot(userInput) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: userInput })
+        body: JSON.stringify({ content: userInput })
     })
     .then(response => response.json())
     .then(data => {
