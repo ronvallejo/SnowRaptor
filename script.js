@@ -5,7 +5,19 @@ function sendMessageToBot(userInput) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ content: userInput })
+        body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [
+                {
+                    role: "user",
+                    content: userInput // Ensure userInput is a string
+                }
+            ],
+            temperature: 1,
+            top_p: 1,
+            n: 1,
+            max_tokens: 4000
+        })
     })
     .then(response => response.json())
     .then(data => {
@@ -17,15 +29,6 @@ function sendMessageToBot(userInput) {
     });
 }
 
-// Function to display messages in the chat
-function displayMessage(messageText, sender) {
-    const messageList = document.getElementById('messages');
-    const newMessage = document.createElement('li');
-    newMessage.textContent = messageText;
-    newMessage.className = sender;
-    messageList.appendChild(newMessage);
-    messageList.scrollTop = messageList.scrollHeight; // Auto-scroll to new message
-}
 
 // Single event listener for the send button
 document.getElementById('send-button').addEventListener('click', function(event) {
